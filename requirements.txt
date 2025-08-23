@@ -9,3 +9,5 @@ python-jose[cryptography]==3.3.0  # for JWT tokens
 passlib[bcrypt]==1.7.4  # for password hashing
 python-multipart==0.0.6  # for form data
 certifi==2024.8.30
+# google-genai==1.30.0
+httpx

@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.config.settings import settings
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import users
+from app.routers import users, hobby_router
 from contextlib import asynccontextmanager
 from app.config.settings import MongoManager
 
@@ -23,7 +23,7 @@ app.add_middleware(
 )
 
 app.include_router(users.router, prefix=settings.API_V1_PREFIX, tags=["users"])
-# app.include_router(hobbies.router, prefix=settings.API_V1_PREFIX, tags=["hobbies"])
+app.include_router(hobby_router.router, prefix=settings.API_V1_PREFIX, tags=["hobbies"])
 # @app.on_event("startup")
 # async def startup_db_client():
 #     print("Starting the app")

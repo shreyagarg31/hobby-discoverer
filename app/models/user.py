@@ -31,7 +31,7 @@ class UserBase(BaseModel):
     name: str
     profile: UserProfile
     created_at: datetime = Field(default_factory=datetime.utcnow)
-class User(BaseModel):
+class User(UserBase):
     id: str
     class Config:
         orm_mode = True
