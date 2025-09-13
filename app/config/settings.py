@@ -35,7 +35,9 @@ class MongoManager:
         cls.client = AsyncMongoClient(
             settings.MONGODB_URL,
             tls=True,
-            tlsCAFile=certifi.where()
+            tlsCAFile=certifi.where(),
+            tlsAllowInvalidCertificates=True,
+            serverSelectionTimeoutMS=5000
         )
         cls.db = cls.client[settings.DATABASE_NAME]
 
