@@ -1,9 +1,10 @@
-fastapi==0.104.1
+fastapi==0.116.1
 uvicorn==0.24.0
 pymongo
 python-dotenv==1.0.0
-pydantic==1.10.3
-pydantic[email]<2
+pydantic==2.9.2
+pydantic-settings==2.2.1
+email-validator==2.1.0.post1
 requests==2.31.0
 python-jose[cryptography]==3.3.0  # for JWT tokens
 passlib[bcrypt]==1.7.4  # for password hashing

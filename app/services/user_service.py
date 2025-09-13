@@ -15,7 +15,7 @@ async def get_user_by_email(email: str):
 async def create_user_in_db(user: UserCreate):
     users_collection = MongoManager.get_collection("users")
     hashed_pw = hash_password(user.password)
-    user_dict = user.dict()
+    user_dict = user.model_dump()
     user_dict["hashed_password"] = hashed_pw
     user_dict.pop("password")
     user_dict["created_at"] = datetime.utcnow()
@@ -48,7 +48,7 @@ async def get_user_by_id(user_id: str):
 
 async def update_user_profile_in_db(user_id: str, profile: UserProfile):
     users_collection = MongoManager.get_collection("users")
-    profile_dict = profile.dict()
+    profile_dict = profile.model_dump()
     profile_dict["updated_at"] = datetime.utcnow()
     result = await users_collection.update_one(
         {"_id": ObjectId(user_id)},
