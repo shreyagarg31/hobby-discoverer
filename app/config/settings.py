@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     DATABASE_NAME: str = "hobby_discoverer"
     
     # API Keys
-    TICKETMASTER_API_KEY: str = os.getenv("TICKETMASTER_API_KEY")
+    # TICKETMASTER_API_KEY: str = os.getenv("TICKETMASTER_API_KEY")
     
     # JWT Settings
     JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY")  # You should generate this
